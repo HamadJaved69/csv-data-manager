@@ -93,7 +93,7 @@ src/
 
 ## Sample Data
 
-The application includes a sample CSV file (`public/sample-data.csv`) with employee data for testing purposes.
+The application includes a sample CSV file (`public/sample-data.csv`) with dummy data for testing purposes.
 
 ## Browser Support
 
