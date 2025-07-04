@@ -176,7 +176,19 @@ const CSVDataTable: React.FC<CSVDataTableProps> = ({
     headers.forEach((header) => {
       newRow[header] = '';
     });
-    onDataUpdate([...data, newRow]);
+    
+    // Add the new row at the beginning of the data
+    const updatedData = [newRow, ...data];
+    onDataUpdate(updatedData);
+    
+    // Reset to first page to show the new row
+    setPage(0);
+    
+    // Automatically start editing the first cell of the new row
+    setTimeout(() => {
+      setEditingCell({ rowIndex: 0, columnKey: headers[0] });
+      setEditValue('');
+    }, 100);
   };
 
   const handleDeleteRow = (rowIndex: number) => {
