@@ -44,36 +44,6 @@ interface CSVDataTableProps {
 
 type SortDirection = 'asc' | 'desc';
 
-// Color schemes for different grouping types
-const colorSchemes: Record<string, Record<string, string>> = {
-  status: {
-    'active': 'success.light',
-    'completed': 'success.light',
-    'pending': 'warning.light',
-    'inactive': 'warning.light',
-    'error': 'error.light',
-    'failed': 'error.light',
-    'processing': 'info.light',
-    'cancelled': 'grey.300',
-  },
-  priority: {
-    'high': 'error.light',
-    'medium': 'warning.light',
-    'low': 'success.light',
-    'critical': 'error.dark',
-  },
-  category: {
-    'urgent': 'error.light',
-    'normal': 'primary.light',
-    'low-priority': 'success.light',
-  },
-  type: {
-    'feature': 'primary.light',
-    'bug': 'error.light',
-    'enhancement': 'info.light',
-    'documentation': 'warning.light',
-  }
-};
 
 const CSVDataTable: React.FC<CSVDataTableProps> = ({
   data,
@@ -220,13 +190,6 @@ const CSVDataTable: React.FC<CSVDataTableProps> = ({
     }
 
     const value = String(row[groupByColumn] || '').toLowerCase();
-
-    // Try to find a matching color scheme
-    for (const [schemeName, scheme] of Object.entries(colorSchemes)) {
-      if (scheme[value]) {
-        return scheme[value];
-      }
-    }
 
     // Fallback: generate a color based on the value
     if (value) {

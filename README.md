@@ -84,10 +84,7 @@ src/
 - Visual indicators show current sort state
 
 ### Row Highlighting
-- Automatic highlighting based on status columns
-- Green for "Active" or "Completed" status
-- Yellow for "Pending" or "Inactive" status
-- Red for "Error" or "Failed" status
+- Automatic highlighting based on columns
 
 ### Data Management
 - Add new rows with empty cells
